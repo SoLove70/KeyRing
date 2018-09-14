@@ -4,10 +4,9 @@ using System.Text;
 
 namespace KeyRingApp.Models
 {
-    public class Request
+    public class Password
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string PasswordId { get; set; }
+        public string Text { get; set; }
     }
 }

@@ -28,8 +28,8 @@ namespace KeyRingApp.Views
             Lbl_Password.TextColor = Constants.MainTextColor;
             Entry_Username.TextColor = Constants.MainTextColor;
             Entry_Password.TextColor = Constants.MainTextColor;
-            Btn_SignIn.BackgroundColor = Constants.ButtonColor;
-            Btn_SignIn.TextColor = Constants.ButtonTextColor;
+            //Btn_SignIn.BackgroundColor = Constants.ButtonColor;
+            //Btn_SignIn.TextColor = Constants.ButtonTextColor;
 
 
             Icon.HeightRequest = Constants.LoginIconHeight;

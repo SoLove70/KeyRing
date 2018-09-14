@@ -3,10 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KeyRingApp.Views.MainMenu"
              Title="Password List">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="plainButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="SlateBlue" />
+                <Setter Property="BorderColor" Value="Blue" />
+                <Setter Property="BorderWidth" Value="4" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="CornerRadius" Value="30" />
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
             <StackLayout x:Name="LogoStack" VerticalOptions="FillAndExpand">
-
                 <Image x:Name="Icon" Source="icon.png" Margin="0,20,0,0" />
             </StackLayout>
             <StackLayout x:Name="RequestStack" VerticalOptions="StartAndExpand">
@@ -17,22 +29,22 @@
                     </OnIdiom>
                 </StackLayout.Padding>
 
-                <ListView x:Name="RequestList">
+                <ListView x:Name="RequestList" RowHeight="80">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout>
+                               
+                                    <StackLayout Margin="0,20,0,0">
                                     <Button x:Name="Btn_GetPassword"
                                             MinimumWidthRequest="400"
                                             MinimumHeightRequest="100"
                                             Text="{Binding Name}"
-                                            FontAttributes="Bold" 
-                                            FontSize="Large"
-                                            BackgroundColor="SlateBlue"
-                                            Clicked="Btn_GetPassword_Clicked"/>
+                                            Clicked="Btn_GetPassword_Clicked"
+                                            Style="{StaticResource plainButton}"/>
 
 
                                 </StackLayout>
+                                
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>

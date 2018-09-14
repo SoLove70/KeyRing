@@ -14,7 +14,7 @@ namespace KeyRingApp.Models
 
         
 
-        public static int LoginIconHeight = 120;
+        public static int LoginIconHeight = 96;
         public static int IconHeight = 60;
     }
 }

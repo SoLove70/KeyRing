@@ -31,26 +31,53 @@ namespace KeyRingApp.Views
 
             
 
-            Icon.HeightRequest = Constants.IconHeight;
+            //Icon.HeightRequest = Constants.IconHeight;
             //App.StartCheckIfInternet(lbl_NoInternet, this);
 
             RequestList.ItemsSource = new List<Request>()
+            
             {
-                new Request() { Id = 1, Name = "Barclays PIN" },
-                new Request() { Id = 2, Name = "Work PC" },
-                new Request() { Id = 3, Name = "Facebook" },
-                new Request() { Id = 4, Name = "Online Banking" },
-                new Request() { Id = 5, Name = "Security Door" },
-                new Request() { Id = 6, Name = "Catalogue" },
-                new Request() { Id = 7, Name = "Laptop" }
+                new Request() { Id = 1, Name = "Barclays PIN", PasswordId="1" },
+                new Request() { Id = 2, Name = "Work PC", PasswordId="2" },
+                new Request() { Id = 3, Name = "Facebook", PasswordId="3" },
+                new Request() { Id = 4, Name = "Online Banking", PasswordId="4" },
+                new Request() { Id = 5, Name = "Security Door", PasswordId="5" },
+                new Request() { Id = 6, Name = "Catalogue", PasswordId="6" },
+                new Request() { Id = 7, Name = "Laptop", PasswordId="7" }
             };
         }
 
-        private void Btn_GetPassword_Clicked(object sender, EventArgs e)
+        //private void RequestList_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        //{
+        //    //var button = (Button)sender;
+        //    //string wanted = button.Text;
+        //    var wanted = (sender as ListView).SelectedItem as Request;
+        //    Navigation.PushAsync(new RandomQuestion(wanted));
+        //}
+
+        private void Btn_GetPassword_Clicked(object sender, SelectedItemChangedEventArgs e)
         {
+            var R_List = new List<Request>()
+            {
+                new Request() { Id = 1, Name = "Barclays PIN", PasswordId="1" },
+                new Request() { Id = 2, Name = "Work PC", PasswordId="2" },
+                new Request() { Id = 3, Name = "Facebook", PasswordId="3" },
+                new Request() { Id = 4, Name = "Online Banking", PasswordId="4" },
+                new Request() { Id = 5, Name = "Security Door", PasswordId="5" },
+                new Request() { Id = 6, Name = "Catalogue", PasswordId="6" },
+                new Request() { Id = 7, Name = "Laptop", PasswordId="7" }
+            };
+
+            
             var button = (Button)sender;
             string wanted = button.Text;
-            Navigation.PushAsync(new RandomQuestion(wanted));
+            var rqst = R_List.Find(x => x.Name == button.Text);
+            int p_id = Convert.ToInt32(rqst.PasswordId); 
+
+
+            Navigation.PushAsync(new RandomQuestion(p_id));
         }
+
+
     }
 }
